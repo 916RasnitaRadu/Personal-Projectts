@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="588.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.gui.SelectWindowController">
+   <children>
+      <ListView fx:id="selectItemListView" layoutX="64.0" layoutY="44.0" prefHeight="510.0" prefWidth="448.0" style="-fx-border-color: grey; -fx-padding: 0.5;" />
+      <Button fx:id="selectButton" layoutX="595.0" layoutY="308.0" mnemonicParsing="false" onAction="#selectExample" prefHeight="35.0" prefWidth="114.0" text="Select" />
+      <Label layoutX="540.0" layoutY="269.0" text="Please choose the program that you want to run">
+         <font>
+            <Font name="Cambria" size="13.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

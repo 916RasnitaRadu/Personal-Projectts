@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="653.0" prefWidth="1235.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.gui.MainWindowController">
+   <children>
+      <Label fx:id="programStatesCount" layoutX="280.0" layoutY="45.0" text="Label" />
+      <ListView fx:id="outputView" layoutX="477.0" layoutY="233.0" prefHeight="395.0" prefWidth="120.0" />
+      <ListView fx:id="fileTableView" layoutX="625.0" layoutY="233.0" prefHeight="395.0" prefWidth="146.0" />
+      <ListView fx:id="executionStackView" layoutX="45.0" layoutY="231.0" prefHeight="395.0" prefWidth="200.0" />
+      <Label layoutX="104.0" layoutY="204.0" text="Execution Stack" />
+      <Label layoutX="518.0" layoutY="204.0" text="Output" />
+      <Label layoutX="673.0" layoutY="204.0" text="File Table" />
+      <TableView fx:id="symbolTableView" layoutX="274.0" layoutY="231.0" prefHeight="395.0" prefWidth="176.0">
+        <columns>
+          <TableColumn fx:id="symbolTableNames" prefWidth="75.0" text="Var name" />
+          <TableColumn fx:id="symbolTableValues" prefWidth="31.0" text="Value" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Label layoutX="328.0" layoutY="204.0" text="SymbolTable" />
+      <TableView fx:id="heapTableView" layoutX="803.0" layoutY="233.0" prefHeight="395.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="heapTableAddresses" prefWidth="75.0" text="Address" />
+          <TableColumn fx:id="heapTableValues" prefWidth="75.0" text="Value" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Label layoutX="873.0" layoutY="204.0" text="Heap Table" />
+      <ListView fx:id="programIdentifiersView" layoutX="1038.0" layoutY="233.0" prefHeight="395.0" prefWidth="146.0" />
+      <Label layoutX="1060.0" layoutY="204.0" text="Program Identifiers" />
+      <Button fx:id="execButton" layoutX="1050.0" layoutY="92.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="112.0" text="Run One Step" />
+   </children>
+   <cursor>
+      <Cursor fx:constant="DEFAULT" />
+   </cursor>
+</AnchorPane>
