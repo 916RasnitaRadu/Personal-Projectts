@@ -18,7 +18,7 @@ Here you will find:
 - In case that the letter si not correct, the computer will add a new letter to the word "hangman"
 - The game ends when the sentence is guessed (user wins) or when the computer fills the word "hangman" (user loses),
 
-### Scranble Game (Python)
+### Scramble Game (Python)
 - The object of the game is to order the scrambled letters into the correct order, by switching one pair at a time
 - The first and last letters will always be correct.
 - It is a command based game, the commands are:
