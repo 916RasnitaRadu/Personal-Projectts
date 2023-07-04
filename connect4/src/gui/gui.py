@@ -129,7 +129,7 @@ class GUI(UI):
                 if turn == CONST_AI_TURN and not game_over:
                     print("The computer picked: ")
                     board = self.board.__copy__
-                    col, minimax_score = self._ai.minimax(board, 5, -math.inf, math.inf, True)
+                    col, minimax_score = self._ai.minimax(board, 2, -math.inf, math.inf, True)
                     if self.ui_is_valid_location(col):
                         piece = CONST_AI_PIECE
                         self.ui_drop_piece(col, piece)
