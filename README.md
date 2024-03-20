@@ -10,7 +10,8 @@ Technologies used for backend:
 - Java/Spring Boot
 - JUnit 5 for testing
 - PostgreSQL for database
-- Azure Blobs for communicating with the Azure database   
+- Azure Blobs for communicating with the Azure database
+    
 Technologies used for frontend:
 - React/Typescript
 - Tailwind for styling
