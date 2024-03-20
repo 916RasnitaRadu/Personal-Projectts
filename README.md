@@ -2,6 +2,27 @@
 A repository with some of my personal projects developed during University and high-school.
 Here you will find:
 
+### Azure Buckets Management (Spring Boot & React Typescript)
+A web application that communicates with an Azure database. Developed during my full-stack internship 
+at FME Cluj-Napoca. The application allows users to retrieve the buckets from the database and select a 
+bucket to view files from it and perform various operations on them.  
+Technologies used for backend:
+- Java/Spring Boot
+- JUnit 5 for testing
+- PostgreSQL for database
+- Azure Blobs for communicating with the Azure database
+    
+Technologies used for frontend:
+- React/Typescript
+- Tailwind for styling
+
+### Finance Tracker Mobile Application (Kotlin, Spring Boot)
+- Faculty project developed for the Mobile Applications course
+- Helps keeping tracks of your expenses and incomes
+- Uses Jetpack Compose for the mobile UI
+- Java Spring Boot for the server part
+- Also uses a local database for when the application is not connected to the server
+
 ### Connect-4 (Python)
 - It is a version of the connect-4 game
 - Helped get a better understanding of programming paradigms, unit testing and layered architecture
