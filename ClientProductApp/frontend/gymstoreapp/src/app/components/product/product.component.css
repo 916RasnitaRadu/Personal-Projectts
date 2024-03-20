@@ -1,0 +1,43 @@
+nav {
+    background-color: transparent;
+    margin-bottom: 0;
+}
+
+.paginations {
+    color: #707070;
+    border: 1px solid;
+    border-radius: 100px;
+    width: 100px;
+    cursor: pointer;
+    outline: none;
+ }
+
+.paginationsStats {
+    color: black;
+    border: none;
+    outline: none;
+    background-color: white;
+    width: 70px;
+    cursor: pointer;
+}
+
+.pg2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pg {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px 0px 50px 0px;
+}
+
+.space {
+    margin-top: 30px;
+}
+
+.submit {
+    border-radius: 100px;
+}

@@ -1,0 +1,208 @@
+<link rel="stylesheet" href="customer.component.css">
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark"> 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+   <span class="navbar-toggler-icon"></span>
+   </button>
+   
+   <div class="collapse navbar-collapse" id="navbarColor02">
+      <ul class="navbar-nav mr-auto">
+         <li class="nav-item active">
+            <a class="nav-link" (click)="onOpenModal(null, 'add')" >Add Customer <span class="sr-only">(current)</span></a>
+         </li>
+ 
+         <li class="nav-item acitve">
+             <a class="nav-link" (click)="onOpenModal(null, 'stats');getStatisticalRep();"> Get Statistical Report <span class="sr-only">(current)</span></a>
+         </li>
+ 
+
+      </ul>
+   </div> 
+ </nav>
+
+ <div class="space"> </div>
+
+<div class="container" id="main-container">
+    <div class="row">
+        <div *ngFor="let customer of customers" class="col-md-6 col-xl-3">
+            <div class="card m-b-30">
+                <div class="card-body row">
+
+                    <div class="col-6 card-title align-self-center mb-0">
+                        <h5>{{customer?.firstName}} {{customer?.lastName}}</h5>
+                        <p class="m-0">{{customer?.email}}</p>
+                    </div>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><i class="fa fa-envelope float-right"></i>Address: {{customer?.address}}</li>
+                    <li class="list-group-item"><i class="fa fa-phone float-right"></i> Age: {{customer?.age}}</li>
+                    <li class="list-group-item"><i class="fa fa-phone float-right"></i> N.o. posted reviews: {{customer?.numberReviews}}</li>
+                </ul>
+                <div class="card-body">
+                    <div class="float-right btn-group btn-group-sm">
+                        <a (click)="onOpenModal(customer, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
+                        <a (click)="onOpenModal(customer, 'delete')" class="btn btn-secondary tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="addCustomerModal" tabindex="-1" role="dialog" aria-labelledby="addCustomerModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                 <div class="modal-header">
+                    <h5 class="modal-title" id="addCustomerModalLabel">Add Customer</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                 </div>
+                 <div class="modal-body">
+                    <form #addForm="ngForm" (ngSubmit)="onAddCustomer(addForm)">
+                    <div class="form-group">
+                       <label for="firstName">First Name</label>
+                       <input type="text" ngModel name="firstName" class="form-control" id="firstName" placeholder="First Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" ngModel name="lastName" class="form-control" id="lastName" placeholder="Last Name" required>
+                     </div>
+                     <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" ngModel name="email" class="form-control" id="email" placeholder="Email" required>
+                     </div>
+                     <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" ngModel name="address" class="form-control" id="address" placeholder="Address" required>
+                     </div>
+                    <div class="form-group">
+                       <label for="age">Age</label>
+                       <input type="text" ngModel name="age" class="form-control" id="age" placeholder="Age" required>
+                    </div>
+                    <div class="modal-footer">
+                       <button type="button" id="add-customer-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                       <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Save changes</button>
+                    </div>
+                    </form>
+                 </div>
+              </div>
+            </div>
+            </div>
+
+            <div class="modal fade" id="updateCustomerModal" tabindex="-1" role="dialog" aria-labelledby="customerEditModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                   <div class="modal-content">
+                      <div class="modal-header">
+                         <h5 class="modal-title" id="updatCustomerModalLabel">Edit Customer {{editCustomer?.firstName}}</h5>
+                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                         <span aria-hidden="true">&times;</span>
+                         </button>
+                      </div>
+                      <div class="modal-body">
+                         <form #editForm="ngForm">
+                            <div class="form-group">
+                               <label for="firstName">First Name</label>
+                               <input type="text" ngModel="{{editCustomer?.firstName}}" name="firstName" class="form-control" id="firstName" placeholder="First Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" ngModel="{{editCustomer?.lastName}}" name="lastName" class="form-control" id="lastName" placeholder="Last Name" required>
+                             </div>
+                            <input type="hidden" ngModel="{{editCustomer?.id}}" name="id" class="form-control" id="id" placeholder="Id">
+                            <div class="form-group">
+                               <label for="email">Email</label>
+                               <input type="text" ngModel="{{editCustomer?.email}}" name="email" class="form-control" id="email" placeholder="Email" required>
+                            </div>
+                            <div class="form-group">
+                               <label for="address">Address</label>
+                               <input type="text" ngModel="{{editCustomer?.address}}" name="address" class="form-control" id="address" placeholder="Address" required>
+                            </div>
+                            <div class="form-group">
+                               <label for="age">Age</label>
+                               <input type="text" ngModel="{{editCustomer?.age}}" name="age" class="form-control" id="age" placeholder="Age" required>
+                            </div>
+    
+                            <div class="modal-footer">
+                               <button type="button" id="" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                               <button (click)="onUpdateCustomer(editForm.value)" type="submit" class="btn btn-primary" >Save changes</button>
+                            </div>
+                         </form>
+                      </div>
+                   </div>
+                </div>
+             </div>
+             
+
+             <div class="modal fade" id="deleteCustomerModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                   <div class="modal-content">
+                      <div class="modal-header">
+                         <h5 class="modal-title" id="deleteModelLabel">Delete Customer</h5>
+                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                         <span aria-hidden="true">&times;</span>
+                         </button>
+                      </div>
+                      <div class="modal-body">
+                         <p>Are you sure you want to delete this customer?</p>
+                         <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                            <button (click)="onDeleteCustomer(deleteCustomer?.id)" class="btn btn-danger" data-dismiss="modal">Yes</button>
+                         </div>
+                      </div>
+                    
+                   </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="statisticalReportModal" tabindex="-1" role="dialog" aria-labelledby="statisticalProductModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                   <div class="modal-content">
+                      <div class="modal-header">
+                         <h5 class="modal-title" id="statisticalCustomerModalLabel">Customer ordered by the average of their review likes </h5>
+       
+                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                         <span aria-hidden="true">&times;</span>
+                         </button>
+                      </div>
+       
+                      <div class="modal-body">
+                         <form #editForm="ngForm">
+                            <div *ngFor="let customer of stats">
+                               <p>{{customer.id}}. {{customer.firstName}}, {{customer.lastName}} : {{customer.likes}} </p>
+                            </div>
+                            <div class="modal-footer pg2">
+                               <button type="button" id="" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                               <button (click)="changePageStats(this.statsCurrentPage + 1)" class="paginationsStats">Next</button>
+                               <div *ngIf="this.statsCurrentPage > 1" class="col-lg-12 col-md-12 col-xl-12"><button (click)="changePageStats(this.statsCurrentPage - 1)" class="paginationsStats"> Prev</button></div>
+    
+                            </div>
+                         </form>
+                      </div>
+                   </div>
+                </div>
+            </div> 
+            
+            <div *ngIf="customers?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+                <div class="alert alert-info" role="alert">
+                   <h4 class="alert-heading">NO CUSTOMERS!</h4>
+                   <p>No customers were found.</p>
+                </div>
+            </div>
+
+
+    </div>
+    <div class="pg">
+      <app-pagination [totalPages]="this.totalPages" [pageNumber]="this.pageNumber"  [currentPage]="this.currentPage" [pageSize]="this.pageSize" (pageChangeEvent)="this.setPageNumber($event)" (pageSizeEvent)="this.setPageSize($event)"></app-pagination>
+    </div>
+
+    <!-- <div class="pg">
+
+        <div>
+           <button (click)="changePage(this.currentPage + 1)" class="paginations"> Next </button>
+        </div>
+        <div *ngIf="this.currentPage > 1"  class="col-lg-12 col-md-12 col-xl-12"> <button (click)="changePage(this.currentPage - 1)" class="paginations"> Prev </button></div>
+    </div> -->
+
+   
+</div>
+

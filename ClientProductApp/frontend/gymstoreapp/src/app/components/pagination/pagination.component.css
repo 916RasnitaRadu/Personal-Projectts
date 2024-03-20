@@ -1,0 +1,47 @@
+.flex {
+    display: flex;
+    gap: 7;
+    margin-top: 6px;
+    width: 100%;
+    justify-content: center;
+    justify-items: center;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    background: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.middle {
+    display: flex;
+    gap: 3;
+    align-items: center;
+    justify-content: space-between;
+   
+
+}
+
+.form {
+    height: 40px;
+    width: 70px;
+    border: 2px;
+    text-align: center;
+    border: 2px solid;
+    outline: none;
+    background: transparent;
+
+}
+
+.select {
+    text-align: center;
+    background: transparent;
+    border: 2px solid;
+    width: 60px;
+
+}
