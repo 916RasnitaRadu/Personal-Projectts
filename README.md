@@ -5,12 +5,12 @@ Here you will find:
 ### Azure Buckets Management (Spring Boot & React Typescript)
 A web application that communicates with an Azure database. Developed during my full-stack internship 
 at FME Cluj-Napoca. The application allows users to retrieve the buckets from the database and select a 
-bucket to view files from it and perform various operations on them.
+bucket to view files from it and perform various operations on them.  
 Technologies used for backend:
 - Java/Spring Boot
 - JUnit 5 for testing
 - PostgreSQL for database
-- Azure Blobs for communicating with the Azure database
+- Azure Blobs for communicating with the Azure database   
 Technologies used for frontend:
 - React/Typescript
 - Tailwind for styling
