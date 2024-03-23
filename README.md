@@ -16,6 +16,15 @@ Technologies used for frontend:
 - React/Typescript
 - Tailwind for styling
 
+### Client-Product Application (Spring Boot, Angular)
+- Faculty project developed for the Systems of Design and Implementation course
+- Manages a many-to-many relationship (Client-Review-Product)
+- Gave me a better understanding of the process of developing a full stack application
+- Java Spring Boot for the backend
+- Angular and Bootstrap for frontend
+- PostgreSQL used for database
+- Backend deployed with Google Cloud and frontend deployed with Netlify
+
 ### Finance Tracker Mobile Application (Kotlin, Spring Boot)
 - Faculty project developed for the Mobile Applications course
 - Helps keeping tracks of your expenses and incomes
